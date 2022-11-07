@@ -16,13 +16,21 @@ def professor_choice():
     while not your_choice:
         print("Вы хотите:\n\
                 1 - посмотреть свое расписание;\n\
-                2 - просмотреть даты вступительных испытаний;\n\
+                2 - работа с группами;\n\
                 3 - просмотреть минимальные проходные баллы;\n\
                 4 - просмотреть список документов для поступления;\n\
                 5 - выйти из этого меню")
         op = input("Выберите желаемое действие: ")
         your_choice = True
     return op
+
+
+def choice_func(func):
+    your_choice = False
+    while not your_choice:
+        op = input(f"Выберите {func} для работы - введите цифру: ")
+        your_choice = True
+    return int(op)
 
 
 def entrant_choice():
