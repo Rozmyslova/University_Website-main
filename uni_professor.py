@@ -1,22 +1,29 @@
-from user_interface import entrant_choice
-from list_of_program import list_of_program
+from professors import professor
+from correct_enter import correct_last_name
+from timetable import timetable
+from user_interface import professor_choice
+from prof_timetable import timetable_for_professor
 from user_interface import export_data
-from exp_list_of_prog import export_list_of_program
-from date_of_ent_exam import date_of_ent_exam
-from exp_date_of_exam import export_date_of_exam
-from min_score import min_score_of_exam
-from exp_min_score import export_min_score
-from list_of_documents import list_of_documents
-from exp_list_doc import export_list_of_doc
+from exp_prof_timetable import export_prof_timetable
 
 
-def operation_for_entrant():
-    entrant_op = True
-    while entrant_op:
-        operation = entrant_choice()
+def operation_for_professor():
+    last_name = correct_last_name()
+    professor_op = True
+    while professor_op:
+        operation = professor_choice()
         if operation == '1':
-            print("Перечень программ университета")
-            l_of_p = list_of_program()
+            print(f"Расписание профессора: {last_name}")
+            timetable_for_professor(last_name)
+            export_prof_ttable = export_data()
+            if export_prof_ttable == '1':
+                export_prof_timetable(last_name)
+
+
+
+
+
+            """l_of_p = list_of_program()
             for keys, values in l_of_p.items():
                 print(keys + ' | ' + values)
             export_list_of_prog = export_data()
@@ -45,6 +52,6 @@ def operation_for_entrant():
                 print(keys + '. ' + values)
             export_list_doc = export_data()
             if export_list_doc == '1':
-                export_list_of_doc()
+                export_list_of_doc()"""
         else:
             break
