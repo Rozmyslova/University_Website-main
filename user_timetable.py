@@ -1,5 +1,4 @@
 from timetable import timetable
-from students import student
 
 
 def timetable_for_professor(name):

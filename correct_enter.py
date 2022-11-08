@@ -25,15 +25,7 @@ def correct_last_name(users):
             return str(l_name)
 
 
-def find_group(name):
-    last_name = name
-    stud = student()
-    for k in stud.keys():
-        if last_name in stud[k]:
-            line = list(stud[k])
-            for i in line:
-                if i == '104 группа':
-                    group = '104 группа'
-                else:
-                    group = '203 группа'
-    return group
+
+
+
+

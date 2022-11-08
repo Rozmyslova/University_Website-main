@@ -31,6 +31,28 @@ def choice_func(func):
     return int(op)
 
 
+def choice_gr_list_hw():
+    your_choice = False
+    while not your_choice:
+        print("Вы хотите:\n\
+                1 - поработать с ведомостями;\n\
+                2 - работа с домашним заданием")
+        op = input("Выберите желаемое действие: ")
+        your_choice = True
+    return op
+
+
+def choice_gr():
+    your_choice = False
+    while not your_choice:
+        print("Вы хотите:\n\
+                1 - вывести на экран;\n\
+                2 - редактировать")
+        op = input("Выберите желаемое действие: ")
+        your_choice = True
+    return op
+
+
 def work_group():
     your_choice = False
     while not your_choice:
@@ -61,9 +83,10 @@ def student_choice():
     while not your_choice:
         print("Вы хотите:\n\
                 1 - посмотреть свое расписание;\n\
-                2 - посмотреть ведомость оценок и посещения;\n\
-                3 - посмотреть дз и сроки сдачи;\n\
-                4 - выйти из этого меню")
+                2 - посмотреть всех своих преподавателей;\n\
+                3 - посмотреть ведомость оценок и посещения;\n\
+                4 - посмотреть дз и сроки сдачи;\n\
+                5 - выйти из этого меню")
         op = input("Выберите желаемое действие: ")
         your_choice = True
     return op

@@ -1,9 +1,17 @@
 from correct_enter import correct_last_name
-from correct_enter import find_group
+from for_student import find_group
 from user_interface import student_choice
 from user_timetable import timetable_for_student
 from user_interface import export_data
 from export import export_stud_timetable
+from for_student import find_prof
+from export import export_list_prof
+from for_student import print_hw
+
+
+
+
+
 from info_for_student import list_of_mark_visit
 
 
@@ -20,9 +28,25 @@ def operation_for_student():
             export_ttable = export_data()
             if export_ttable == '1':
                 export_stud_timetable(last_name)
-                print('Файл stud_timetable.txt экспортирован')
+            print('Файл stud_timetable.txt экспортирован')
         elif operation == '2':
-            list_of_mark_visit(last_name, group)
+            print(f"Список всех преподавателей студента: {last_name}")
+            find_prof(group)
+            export_list_pr = export_data()
+            if export_list_pr == '1':
+                export_list_prof(last_name, group)
+            print('Файл list_professor.txt экспортирован')
+        elif operation == '3':
+            print(f"Ведомость оценок и посещения студента: {last_name}")
+        elif operation == '4':
+            print_hw(last_name, group)
+
+
+
+
+
+
+            #list_of_mark_visit(last_name, group)
 
 
 
