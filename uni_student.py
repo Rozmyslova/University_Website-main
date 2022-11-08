@@ -7,12 +7,10 @@ from export import export_stud_timetable
 from for_student import find_prof
 from export import export_list_prof
 from for_student import print_hw
-
-
-
-
-
-from info_for_student import list_of_mark_visit
+from export import export_my_hw
+from for_student import print_mark
+from export import export_my_mark
+from for_student import choice_subject
 
 
 def operation_for_student():
@@ -24,71 +22,35 @@ def operation_for_student():
         operation = student_choice()
         if operation == '1':
             print(f"Расписание студента: {last_name}")
-            timetable_for_student(group)
+            timetable_st = timetable_for_student(group)
             export_ttable = export_data()
             if export_ttable == '1':
-                export_stud_timetable(last_name)
+                export_stud_timetable(last_name, timetable_st)
             print('Файл stud_timetable.txt экспортирован')
         elif operation == '2':
             print(f"Список всех преподавателей студента: {last_name}")
-            find_prof(group)
+            f_prof = find_prof(group)
             export_list_pr = export_data()
             if export_list_pr == '1':
-                export_list_prof(last_name, group)
+                export_list_prof(last_name, f_prof)
             print('Файл list_professor.txt экспортирован')
         elif operation == '3':
-            print(f"Ведомость оценок и посещения студента: {last_name}")
+            subject = choice_subject(last_name, group)
+            print(f"Ведомость оценок по предмету {subject} и посещения студента: {last_name}")
+            mark_of_sub = print_mark(last_name, group, subject)
+            print(mark_of_sub)
+            export_mark = export_data()
+            if export_mark == '1':
+                export_my_mark(mark_of_sub, subject)
+            print('Файл my_mark.txt экспортирован')
         elif operation == '4':
-            print_hw(last_name, group)
-
-
-
-
-
-
-            #list_of_mark_visit(last_name, group)
-
-
-
-
-            """print(f"{last_name}, вы ведете следующие предметы")
-            subj = list(enumerate(subject_selection(last_name)))
-            for item in subj:
-                print(item)
-            function = "предмет"
-            subject_ch = choice_func(function)
-            subject = subj[subject_ch][1]
-            print(f"Вы ведете предмет {subject} в следующих группах")
-            group_subj = list(enumerate(group_prof_subj_selection(last_name, subject)))
-            for item in group_subj:
-                print(item)
-            group_func = "группу"
-            group_ch = choice_func(group_func)
-            subject = group_subj[group_ch][1]
-            print(subject)
-            list_subject_gr = import_list(function, group_func)
-            for keys, values in list_subject_gr.items():
-                print(keys, ' | '.join(values))
-            action = work_group()
-            if action == '1':
-                print("Вы хотите:\n\
-                    1 - скорректировать файл и импортировать его;\n\
-                    2 - внести изменения в программе")
-                act = 'действие'
-                list_action = choice_func(act)
-                if list_action == '1':
-                    print("скорректируйте файл группы и импортируйте его")
-                    do_it()
-                    list_subject_gr = import_list(function, group_func)
-                    for keys, values in list_subject_gr.items():
-                        print(keys, ' | '.join(values))
-                else:
-                    new_list_subject_gr = change_mark(list_subject_gr)
-                    for keys, values in new_list_subject_gr.items():
-                        print(keys, ' | '.join(values))"""
-
-
-
-
+            subject = choice_subject(last_name, group)
+            hw_print = print_hw(group, subject)
+            for k in hw_print:
+                print(hw_print[k])
+            export_hw = export_data()
+            if export_hw == '1':
+                export_my_hw(hw_print, subject, last_name)
+            print('Файл my_hw.txt экспортирован')
         else:
-             break
+            break

@@ -23,4 +23,3 @@ def operation_for_professor():
             work_with_group(last_name)
         else:
             professor_op = False
-            #break

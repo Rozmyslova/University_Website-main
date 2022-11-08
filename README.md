@@ -64,9 +64,13 @@ uni_student.py - файл меню для студентов
         и предлагает по необходимости (метод export_data () из user_interface.py) экспортировать эту информацию 
         методом export_list_prof() из export.py в файл list_professor.txt
       '3' - посмотреть ведомость оценок и посещения
-        метод work_with_group() из файла working_with_group.py переводит в работу с данными г  
+        метод print_mark() из файла for_student.py выводит оценки по предмету на экран и предлагает 
+        по необходимости (метод export_data () из user_interface.py) экспортировать эту информацию 
+        методом export_my_mark() из export.py в файл my_mark.txt
       '4' - посмотреть дз по предмету и срок сдачи
-        метод print_hw() из файла for_student.py выводит домашнее задание на экран
+        метод print_hw() из файла for_student.py выводит домашнее задание на экран  и предлагает 
+        по необходимости (метод export_data () из user_interface.py) экспортировать эту информацию 
+        методом export_my_hw() из export.py в файл my_hw.txt
       '5' - выйти из этого меню
   
 

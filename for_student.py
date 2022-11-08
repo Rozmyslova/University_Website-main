@@ -3,8 +3,8 @@ from students import student
 from working_with_group import subject_selection
 from user_interface import choice_func
 from work_gr import list_print
-
 from user_interface import export_data
+
 
 
 def find_group(name):
@@ -34,19 +34,30 @@ def find_prof(gr):
     return prof_list
 
 
-def print_hw(name, gr):
-    last_name = name
-    group = gr
+def print_hw(gr, sub):
     choice_gr = '2'
-    print(f"{last_name}, у вас есть следующие предметы")
-    subj = list(enumerate(subject_selection(group)))
+    subject = sub
+    list_subject_gr = list_print(subject, gr, choice_gr)
+    return list_subject_gr
+
+
+def print_mark(name, gr, sub):
+    choice_gr = '1'
+    subject = sub
+    list_subject_gr = list_print(subject, gr, choice_gr)
+    line = {}
+    for k in list_subject_gr.keys():
+        if name in k:
+            line[k] = list_subject_gr[k]
+    return line
+
+
+def choice_subject(name, gr):
+    print(f"{name}, у вас есть следующие предметы")
+    subj = list(enumerate(subject_selection(gr)))
     for item in subj:
         print(item)
     function = "предмет"
     subject_ch = choice_func(function)
     subject = subj[subject_ch][1]
-    list_subject_gr = list_print(subject, group, choice_gr)
-    print(f"Домашнее задание по предмету {subject}")
-    for keys, values in list_subject_gr.items():
-        print(keys, ''.join(values))
-
+    return subject
