@@ -1,6 +1,7 @@
 from user_interface import user_choice
 from uni_professor import operation_for_professor
 from uni_entrant import operation_for_entrant
+from uni_student import operation_for_student
 
 
 def users():
@@ -10,7 +11,7 @@ def users():
         if status == '1':
             operation_for_professor()
         elif status == '2':
-            print("2")
+            operation_for_student()
         elif status == '3':
             operation_for_entrant()
         else:

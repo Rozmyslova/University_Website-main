@@ -17,9 +17,7 @@ def professor_choice():
         print("Вы хотите:\n\
                 1 - посмотреть свое расписание;\n\
                 2 - работа с группами;\n\
-                3 - просмотреть минимальные проходные баллы;\n\
-                4 - просмотреть список документов для поступления;\n\
-                5 - выйти из этого меню")
+                3 - выйти из этого меню")
         op = input("Выберите желаемое действие: ")
         your_choice = True
     return op
@@ -31,6 +29,44 @@ def choice_func(func):
         op = input(f"Выберите {func} для работы - введите цифру: ")
         your_choice = True
     return int(op)
+
+
+def work_group():
+    your_choice = False
+    while not your_choice:
+        print("Вы хотите:\n\
+                1 - скорректировать;\n\
+                2 - выйти из этого меню")
+        op = input("Выберите желаемое действие: ")
+        your_choice = True
+    return op
+
+
+def do_it():
+    your_choice = False
+    while not your_choice:
+        print("Вы сделали это?\n\
+                    1 - да;\n\
+                    2 - нет")
+        op = input("Ваш ответ: ")
+        if op != '1':
+            print("Скорректируйте файл!")
+        else:
+            your_choice = True
+    return op
+
+
+def student_choice():
+    your_choice = False
+    while not your_choice:
+        print("Вы хотите:\n\
+                1 - посмотреть свое расписание;\n\
+                2 - посмотреть ведомость оценок и посещения;\n\
+                3 - посмотреть дз и сроки сдачи;\n\
+                4 - выйти из этого меню")
+        op = input("Выберите желаемое действие: ")
+        your_choice = True
+    return op
 
 
 def entrant_choice():
